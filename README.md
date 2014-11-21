@@ -5,7 +5,7 @@ sendgrid-asm-java
 
 Manages global and group based e-mail suppressions using the [SendGrid Advanced Suppression Manager](https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/index.html).  This library does *not* send e-mail.  This library is a stop-gap until ASM features are added to the [SendGrid Java Client](https://github.com/sendgrid/sendgrid-java).
 
-#Suppressions
+##Suppressions
 ```java
 SuppressionManager suppressionMgr = new SuppressionManager("username","password");
 
@@ -36,7 +36,7 @@ suppressionManager.save("email", suppressions);
 ```
 
 
-#Groups
+##Groups
 ```java
 GroupManager groupMgr = new GroupManager("username", "password");
 
@@ -53,7 +53,7 @@ groupMgr.remove(42);
 
 ```
 
-#Global Suppressions
+##lobal Suppressions
 ```java
 GlobalSuppressionManager globalMgr = new GlobalSuppressionManager("username", "password");
 if (globalMgr.exists("email")){
