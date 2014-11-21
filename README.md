@@ -11,6 +11,8 @@ Manages global and group based e-mail suppressions using the [SendGrid Advanced 
 
 Jackson for JSON parsing
 
+Apache HttpClient
+
 Apache Fluent HttpClient
 
 ## Maven
@@ -24,6 +26,11 @@ Apache Fluent HttpClient
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
     <version>2.4.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.3.6</version>
 </dependency>
 <dependency>
     <groupId>org.apache.httpcomponents</groupId>
