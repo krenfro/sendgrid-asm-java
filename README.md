@@ -1,7 +1,7 @@
 sendgrid-asm-java
 =================
 
-SendGrid Advanced Suppression Manager (ASM) Java Client
+[SendGrid](https://sendgrid.com/) Advanced Suppression Manager (ASM) Java Client
 
 Manages global and group based e-mail suppressions using the [SendGrid Advanced Suppression Manager](https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/index.html).  This library does *not* send e-mail.  This library is a stop-gap until ASM features are added to the [SendGrid Java Client](https://github.com/sendgrid/sendgrid-java).
 
