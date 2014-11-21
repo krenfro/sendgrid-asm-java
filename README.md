@@ -9,8 +9,6 @@ Manages global and group based e-mail suppressions using the [SendGrid Advanced 
 
 ## Dependencies
 
-Java 7+
-
 Jackson for JSON parsing
 
 Apache Fluent HttpClient
@@ -91,7 +89,7 @@ groupMgr.remove(42);
 ```java
 GlobalSuppressionManager globalMgr = 
 	new GlobalSuppressionManager("username", "password");
-	
+
 if (globalMgr.exists("email")){
 	//do something
 }
