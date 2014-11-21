@@ -3,6 +3,7 @@ package com.github.krenfro.sendgrid.asm;
 import java.util.Objects;
 
 public class Group {
+    
     private Integer id;
     private String name;
     private String description;

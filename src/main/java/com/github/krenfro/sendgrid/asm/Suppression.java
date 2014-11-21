@@ -3,11 +3,12 @@ package com.github.krenfro.sendgrid.asm;
 import java.util.Objects;
 
 public class Suppression {
+    
     private Integer id;
     private String name;
     private String description;
     private boolean suppressed;
-
+    
     public Integer getId() {
         return id;
     }

@@ -1,25 +1,24 @@
 package com.github.krenfro.sendgrid.asm;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class GroupsTest {
+public class GroupManagerTest {
 
-    
+    /* When running these tests, use Java environment variables to set credentials:
+       e.g., "mvn -Dsendgrid-username=ABC -Dsendgrid-password=XXXXX clean test"    
+    */    
     public static final String USERNAME = System.getProperty("sendgrid-username");
-    public static final String PASSWORD = System.getProperty("sendgrid-password");
-    
+    public static final String PASSWORD = System.getProperty("sendgrid-password");    
     public static final String TEST_GROUP_NAME = "junit-group";        
     
     @BeforeClass
     @AfterClass
-    public static void removeTestGroup() throws IOException{        
-        Groups groups = new Groups(USERNAME, PASSWORD);
+    public static void cleanup() throws IOException{        
+        GroupManager groups = new GroupManager(USERNAME, PASSWORD);
         for (Group group: groups.retrieve()){
             if (group.getName().equals(TEST_GROUP_NAME)){
                 groups.remove(group);
@@ -30,7 +29,7 @@ public class GroupsTest {
     
     @Test
     public void testOperations() throws IOException{
-        Groups groups = new Groups(USERNAME, PASSWORD);
+        GroupManager groups = new GroupManager(USERNAME, PASSWORD);
         Group group = groups.add(TEST_GROUP_NAME, "test group");
         assertNotNull(group.getId());
         assertEquals(TEST_GROUP_NAME, group.getName());
