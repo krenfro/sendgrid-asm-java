@@ -19,18 +19,18 @@ if (suppression.isSuppressed()){
 	System.out.println(suppression.getDescription());
 }
 
+//add suppressions
+suppressionMgr.add(group, "email");
+suppressionMgr.add(group, "email", "email2", "email3");
+
 //remove a suppression
 suppressionMgr.remove(group, "email");
+suppressionMgr.remove(group, "email", "email2", "email3");
 
 //get list of all Suppressions, one for each suppression group
 List<Suppression> suppressions = suppressionMgr.retrieve("email");
 
-//change them
-for (Suppression suppression: suppressions){
-	suppression.setSuppressed(false);
-}
-
-//save them
+//selectively save all of them
 suppressionManager.save("email", suppressions);
 
 ```
@@ -40,17 +40,17 @@ suppressionManager.save("email", suppressions);
 ```java
 GroupManager groupMgr = new GroupManager("username", "password");
 
-//retrieve all defined groups
 List<Group> groups = groupMgr.retrieve();
 
-//add a new group
 Group group = groupMgr.add("group name", "group description");
 
-//retrieve a group by id
+//retrieve by id
 group = groupMgr.retrieve(42);
 
-//remove a group
 groupMgr.remove(group);
+
+//or by id
+groupMgr.remove(42);
 
 ```
 
@@ -64,9 +64,9 @@ if (globalMgr.exists("email")){
 globalMgr.add("email");
 globalMgr.remove("email");
 
-//you can add and remove multiple e-mails
-globalMgr.add("email", "email2", ..., "emailN");
-globalMgr.remove("email", "email2", ..., "emailN");
+//you can add and remove multiple
+globalMgr.add("email", "email2", "email3");
+globalMgr.remove("email", "email2", "email3");
 
 
 ```
