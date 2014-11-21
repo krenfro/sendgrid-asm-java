@@ -53,7 +53,7 @@ groupMgr.remove(42);
 
 ```
 
-##lobal Suppressions
+##Global Suppressions
 ```java
 GlobalSuppressionManager globalMgr = new GlobalSuppressionManager("username", "password");
 if (globalMgr.exists("email")){
