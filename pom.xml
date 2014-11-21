@@ -11,34 +11,26 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
+    <licenses>
+        <license>
+          <name>Apache License, Version 2.0</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+          <distribution>repo</distribution>
+          <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
     <dependencies>
-        <dependency>
-            <groupId>com.sendgrid</groupId>
-            <artifactId>sendgrid-java</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-        <dependency>
-            <!-- This is a custom version with SendGrid ASM (beta) support.  A pull request has been submitted,
-            and at some point, a updated (official) version of this library should be used.-->
-            <groupId>com.sendgrid</groupId>
-            <artifactId>smtpapi-java</artifactId>
-            <version>1.0.1-KR</version>
-        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.4.0</version>
-        </dependency>        
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.3.6</version>
-        </dependency>
+            <scope>provided</scope>
+        </dependency>   
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>fluent-hc</artifactId>
             <version>4.3.6</version>
-            <type>jar</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
