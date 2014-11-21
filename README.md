@@ -40,8 +40,10 @@ suppressionManager.save("email", suppressions);
 ```java
 GroupManager groupMgr = new GroupManager("username", "password");
 
+//retrieve all groups
 List<Group> groups = groupMgr.retrieve();
 
+//add a new group
 Group group = groupMgr.add("group name", "group description");
 
 //retrieve by id
