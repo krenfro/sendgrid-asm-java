@@ -63,6 +63,9 @@ List<Suppression> suppressions = suppressionMgr.retrieve("email");
 //selectively save all of them
 suppressionManager.save("email", suppressions);
 
+//get list of all e-mails suppressed in a group
+List<String> emails = suppressionMgr.retrieve(group);
+
 ```
 
 
