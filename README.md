@@ -90,7 +90,7 @@ groupMgr.remove(42);
 GlobalSuppressionManager globalMgr = 
 	new GlobalSuppressionManager("username", "password");
 
-if (globalMgr.exists("email")){
+if (globalMgr.has("email")){
 	//do something
 }
 

@@ -1,6 +1,5 @@
 package com.github.krenfro.sendgrid.asm;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 import java.util.*;
@@ -44,7 +43,7 @@ public class GlobalSuppressionManager extends SendGrid{
         return suppressions;
     }
     
-    public boolean exists(String email) throws IOException{                
+    public boolean has(String email) throws IOException{                
         Request get = Request.Get(baseUrl + "/suppressions/global/" + email)
                 .addHeader("Accept", "application/json")
                 .addHeader("Authorization", authHeader);

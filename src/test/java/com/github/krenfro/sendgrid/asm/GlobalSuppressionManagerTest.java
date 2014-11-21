@@ -28,11 +28,11 @@ public class GlobalSuppressionManagerTest {
     public void testOperations() throws IOException{
         
         GlobalSuppressionManager gsm = new GlobalSuppressionManager(USERNAME, PASSWORD);
-        assertFalse(gsm.exists(TEST_EMAIL));
+        assertFalse(gsm.has(TEST_EMAIL));
         assertTrue(gsm.add(TEST_EMAIL).contains(TEST_EMAIL));
-        assertTrue(gsm.exists(TEST_EMAIL));
+        assertTrue(gsm.has(TEST_EMAIL));
         gsm.remove(TEST_EMAIL);
-        assertFalse(gsm.exists(TEST_EMAIL));
+        assertFalse(gsm.has(TEST_EMAIL));
     }
 
 }
