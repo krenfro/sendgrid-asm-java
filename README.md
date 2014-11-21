@@ -18,9 +18,9 @@ Apache Fluent HttpClient
 ## Maven
 ```
 <dependency>
-	<groupId>com.github.krenfro</groupId>
-	<artifactId>sendgrid-asm-java</artifactId>
-	<version>0.0.1</version>
+    <groupId>com.github.krenfro</groupId>
+    <artifactId>sendgrid-asm-java</artifactId>
+    <version>0.0.1</version>
 </dependency>
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
