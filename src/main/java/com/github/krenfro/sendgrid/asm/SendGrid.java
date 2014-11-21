@@ -1,0 +1,32 @@
+package com.github.krenfro.sendgrid.asm;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import java.io.IOException;
+import org.apache.commons.codec.binary.Base64;
+
+public abstract class SendGrid {    
+    
+    public static final String DEFAULT_URL = "https://api.sendgrid.com/v3/asm";
+    protected String baseUrl = DEFAULT_URL;    
+    protected final String authHeader;
+    protected ObjectMapper jackson;
+    
+    public SendGrid(String username, String password) throws IOException{
+        authHeader = "Basic " + Base64.encodeBase64String(
+                String.format("%s:%s", username, password).getBytes());
+        jackson = new ObjectMapper();
+        jackson.setPropertyNamingStrategy(
+                PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);
+        jackson.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    }
+
+    public void setBaseUrl(String baseUrl){
+        this.baseUrl = baseUrl;
+    }
+
+    public String getBaseUrl(){
+        return baseUrl;
+    }
+}
