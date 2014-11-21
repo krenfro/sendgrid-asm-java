@@ -29,11 +29,6 @@ Apache Fluent HttpClient
 </dependency>
 <dependency>
     <groupId>org.apache.httpcomponents</groupId>
-    <artifactId>httpclient</artifactId>
-    <version>4.3.6</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.httpcomponents</groupId>
     <artifactId>fluent-hc</artifactId>
     <version>4.3.6</version>
 </dependency>
