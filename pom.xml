@@ -6,6 +6,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>sendgrid-asm-java</name>
+    <description>SendGrid Advanced Suppression Manager (ASM) Java Client</description>       
+    <url>https://github.com/krenfro/sendgrid-asm-java</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
@@ -19,6 +21,21 @@
           <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/krenfro/sendgrid-asm-java</connection>
+        <url>https://github.com/krenfro/sendgrid-asm-java</url>
+        <tag>HEAD</tag>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Staging Repository</name>
+            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+    <issueManagement>
+        <url>https://github.com/krenfro/sendgrid-asm-java/issues</url>
+    </issueManagement>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
