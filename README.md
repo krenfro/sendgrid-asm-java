@@ -23,14 +23,19 @@ Apache Fluent HttpClient
     <version>0.0.1</version>
 </dependency>
 <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.4.0</version>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.3.6</version>
 </dependency>
 <dependency>
     <groupId>org.apache.httpcomponents</groupId>
     <artifactId>fluent-hc</artifactId>
     <version>4.3.6</version>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.4.0</version>
 </dependency>
 ```
 
