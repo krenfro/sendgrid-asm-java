@@ -107,9 +107,9 @@
         </profile>
     </profiles>        
     <scm>
-        <connection>scm:git:krenfro@github.com:krenfro/sendgrid-asm-java.git</connection>
-        <developerConnection>scm:git:krenfro@github.com:krenfro/sendgrid-asm-java.git</developerConnection>            
-        <url>krenfro@github.com:krenfro/sendgrid-asm-java.git</url>
+        <connection>scm:git:git@github.com:krenfro/sendgrid-asm-java.git</connection>
+        <developerConnection>scm:git:git@github.com:krenfro/sendgrid-asm-java.git</developerConnection>            
+        <url>git@github.com:krenfro/sendgrid-asm-java.git</url>
     </scm>
     <distributionManagement>
         <repository>
