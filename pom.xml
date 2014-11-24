@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.krenfro</groupId>
     <artifactId>sendgrid-asm-java</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>sendgrid-asm-java</name>
     <description>SendGrid Advanced Suppression Manager (ASM) Java Client</description>       
@@ -110,7 +110,7 @@
         <connection>scm:git:git@github.com:krenfro/sendgrid-asm-java.git</connection>
         <developerConnection>scm:git:git@github.com:krenfro/sendgrid-asm-java.git</developerConnection>            
         <url>git@github.com:krenfro/sendgrid-asm-java.git</url>
-      <tag>sendgrid-asm-java-0.0.1</tag>
+      <tag>HEAD</tag>
   </scm>
     <distributionManagement>
         <repository>
