@@ -12,7 +12,7 @@ import org.apache.http.entity.ContentType;
  * GroupManager are individual types of email you would like your users to be able to 
  * unsubscribe from, (e.g. Newsletters, Invoices, Alerts).
  * 
- * @see https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/groups.html
+ * https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/groups.html
  */
 public class GroupManager extends SendGrid{
     

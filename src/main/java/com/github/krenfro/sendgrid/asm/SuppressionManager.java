@@ -12,7 +12,7 @@ import org.apache.http.entity.ContentType;
  * SuppressionManager are email addresses that can be added to Groups to prevent 
  * certain types of emails from being delivered to those addresses.
  * 
- * @see https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/suppressions.html
+ * https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/suppressions.html
  */
 public class SuppressionManager extends SendGrid{
     

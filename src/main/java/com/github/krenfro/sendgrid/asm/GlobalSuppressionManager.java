@@ -10,7 +10,7 @@ import org.apache.http.entity.ContentType;
 /**
  * Global Suppressions are email addresses that will not receive any emails.
  * 
- * @see https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/global_suppressions.html
+ * https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/global_suppressions.html
  */
 public class GlobalSuppressionManager extends SendGrid{
     
