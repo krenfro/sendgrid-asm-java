@@ -16,7 +16,7 @@ import org.apache.http.entity.ContentType;
  */
 public class SuppressionManager extends SendGrid{
     
-    public SuppressionManager(String username, String password) throws IOException{
+    public SuppressionManager(String username, String password){
         super(username, password);
     }
 

@@ -16,7 +16,7 @@ import org.apache.http.entity.ContentType;
  */
 public class GroupManager extends SendGrid{
     
-    public GroupManager(String username, String password) throws IOException{
+    public GroupManager(String username, String password){
         super(username, password);
         baseUrl = baseUrl.concat("/groups");
     }

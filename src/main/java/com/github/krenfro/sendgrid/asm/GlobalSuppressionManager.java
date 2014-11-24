@@ -14,7 +14,7 @@ import org.apache.http.entity.ContentType;
  */
 public class GlobalSuppressionManager extends SendGrid{
     
-    public GlobalSuppressionManager(String username, String password) throws IOException{
+    public GlobalSuppressionManager(String username, String password){
         super(username, password);
     }
         

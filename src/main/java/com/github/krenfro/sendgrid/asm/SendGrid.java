@@ -13,7 +13,7 @@ public abstract class SendGrid {
     protected final String authHeader;
     protected ObjectMapper jackson;
     
-    public SendGrid(String username, String password) throws IOException{
+    public SendGrid(String username, String password){
         authHeader = "Basic " + Base64.encodeBase64String(
                 String.format("%s:%s", username, password).getBytes());
         jackson = new ObjectMapper();
