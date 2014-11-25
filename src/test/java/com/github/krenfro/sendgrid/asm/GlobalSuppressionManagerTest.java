@@ -1,7 +1,6 @@
 package com.github.krenfro.sendgrid.asm;
 
 import java.io.IOException;
-import java.util.List;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -13,8 +12,7 @@ public class GlobalSuppressionManagerTest {
        e.g., "mvn -Dsendgrid-username=ABC -Dsendgrid-password=XXXXX clean test"    
     */    
     public static final String USERNAME = System.getProperty("sendgrid-username");
-    public static final String PASSWORD = System.getProperty("sendgrid-password");    
-    public static final String TEST_GROUP_NAME = "junit-suppression-group";               
+    public static final String PASSWORD = System.getProperty("sendgrid-password");       
     public static final String TEST_EMAIL = "junit@does-not-exist.com"; 
     
     @BeforeClass
@@ -25,8 +23,7 @@ public class GlobalSuppressionManagerTest {
     }
     
     @Test
-    public void testOperations() throws IOException{
-        
+    public void testOperations() throws IOException{        
         GlobalSuppressionManager gsm = new GlobalSuppressionManager(USERNAME, PASSWORD);
         assertFalse(gsm.has(TEST_EMAIL));
         assertTrue(gsm.add(TEST_EMAIL).contains(TEST_EMAIL));
