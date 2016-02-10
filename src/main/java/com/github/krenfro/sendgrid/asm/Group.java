@@ -3,7 +3,7 @@ package com.github.krenfro.sendgrid.asm;
 import java.util.Objects;
 
 public class Group {
-    
+
     private Integer id;
     private String name;
     private String description;
@@ -40,8 +40,8 @@ public class Group {
 
     public void setLastEmailSentAt(String lastEmailSentAt) {
         this.lastEmailSentAt = lastEmailSentAt;
-    }    
-    
+    }
+
     public Integer getUnsubscribes() {
         return unsubscribes;
     }
@@ -83,5 +83,5 @@ public class Group {
             return false;
         }
         return true;
-    }    
+    }
 }

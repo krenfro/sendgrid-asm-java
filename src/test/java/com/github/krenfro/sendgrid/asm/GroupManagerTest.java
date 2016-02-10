@@ -6,19 +6,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class GroupManagerTest {
+public class GroupManagerTest extends AbstractTest {
 
-    /* When running these tests, use Java environment variables to set credentials:
-       e.g., "mvn -Dsendgrid-username=ABC -Dsendgrid-password=XXXXX clean test"    
-    */    
-    public static final String USERNAME = System.getProperty("sendgrid-username");
-    public static final String PASSWORD = System.getProperty("sendgrid-password");    
-    public static final String TEST_GROUP_NAME = "junit-group";        
-    
+    public static final String TEST_GROUP_NAME = "junit-group";
+
     @BeforeClass
     @AfterClass
-    public static void cleanup() throws IOException{        
-        GroupManager groups = new GroupManager(USERNAME, PASSWORD);
+    public static void cleanup() throws IOException{
+        GroupManager groups = getGroupManager();
         for (Group group: groups.retrieve()){
             if (group.getName().equals(TEST_GROUP_NAME)){
                 groups.remove(group);
@@ -26,10 +21,10 @@ public class GroupManagerTest {
             }
         }
     }
-    
+
     @Test
     public void testOperations() throws IOException{
-        GroupManager groups = new GroupManager(USERNAME, PASSWORD);
+        GroupManager groups = getGroupManager();
         Group group = groups.add(TEST_GROUP_NAME, "test group");
         assertNotNull(group.getId());
         assertEquals(TEST_GROUP_NAME, group.getName());
