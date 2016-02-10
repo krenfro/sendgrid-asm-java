@@ -3,12 +3,12 @@ package com.github.krenfro.sendgrid.asm;
 import java.util.Objects;
 
 public class Suppression {
-    
+
     private Integer id;
     private String name;
     private String description;
     private boolean suppressed;
-    
+
     public Integer getId() {
         return id;
     }
@@ -44,8 +44,8 @@ public class Suppression {
     @Override
     public String toString(){
         return "Suppression{" + "id=" + id + ", name=" + name + ", description=" + description + ", suppressed=" + suppressed + '}';
-    }    
-    
+    }
+
     @Override
     public int hashCode(){
         int hash = 5;
@@ -74,5 +74,5 @@ public class Suppression {
             return false;
         }
         return true;
-    }    
+    }
 }

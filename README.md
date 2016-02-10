@@ -52,9 +52,12 @@ dependencies {
 
 #Usage
 
+Classes can be loaded using either an API Key, or your username and password.
+
 ##Suppressions
 ```java
-SuppressionManager suppressionMgr = new SuppressionManager("username","password");
+SuppressionManager suppressionMgr = new SuppressionManager("apiKey"); // or:
+//SuppressionManager suppressionMgr = new SuppressionManager("username", "password");
 
 //get Suppression for a particular group and user
 Suppression suppression = suppressionMgr.retrieve(42, "email");
@@ -88,7 +91,8 @@ List<String> emails = suppressionMgr.retrieve(group);
 
 ##Groups
 ```java
-GroupManager groupMgr = new GroupManager("username", "password");
+GroupManager groupMgr = new GroupManager("apiKey"); // or:
+//GroupManager groupMgr = new GroupManager("username", "password");
 
 //retrieve all groups
 List<Group> groups = groupMgr.retrieve();
@@ -106,8 +110,8 @@ groupMgr.remove(group);
 
 ##Global Suppressions
 ```java
-GlobalSuppressionManager globalMgr =
-	new GlobalSuppressionManager("username", "password");
+GlobalSuppressionManager globalMgr = new GlobalSuppressionManager("apiKey"); // or:
+//GlobalSuppressionManager globalMgr = new GlobalSuppressionManager("username", "password");
 
 if (globalMgr.has("email")){
 	//do something
@@ -121,4 +125,11 @@ globalMgr.add("email", "email2", "email3");
 globalMgr.remove("email", "email2", "email3");
 
 
+```
+
+# Tests
+Integration tests run against an actual SendGrid account with either form of credentials:
+```
+mvn -Dsendgrid-username=ABC -Dsendgrid-password=XXXXX clean test
+mvn -Dsendgrid-apikey=XXXXX clean test
 ```

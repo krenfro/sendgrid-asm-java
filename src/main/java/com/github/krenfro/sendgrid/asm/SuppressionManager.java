@@ -9,22 +9,26 @@ import org.apache.http.client.fluent.Request;
 import org.apache.http.entity.ContentType;
 
 /**
- * SuppressionManager are email addresses that can be added to Groups to prevent 
+ * SuppressionManager are email addresses that can be added to Groups to prevent
  * certain types of emails from being delivered to those addresses.
- * 
+ *
  * https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/suppressions.html
  */
 public class SuppressionManager extends SendGrid{
-    
+
     public SuppressionManager(String username, String password){
         super(username, password);
     }
 
-    public List<String> add(Group group, String ... email) throws IOException{        
+    public SuppressionManager(String apiKey){
+        super(apiKey);
+    }
+
+    public List<String> add(Group group, String ... email) throws IOException{
         return add(group.getId(), email);
     }
-        
-    public List<String> add(int groupId, String ... email) throws IOException{        
+
+    public List<String> add(int groupId, String ... email) throws IOException{
         List<String> suppressions = new ArrayList<>();
         Map<String,Object> map = new HashMap<>();
         map.put("recipient_emails", email);
@@ -35,7 +39,7 @@ public class SuppressionManager extends SendGrid{
         try{
             String json = post
                     .bodyString(payload, ContentType.APPLICATION_JSON)
-                    .execute().returnContent().asString();            
+                    .execute().returnContent().asString();
             JsonNode array = jackson.readTree(json).path("recipient_emails");
             if (array.isArray()){
                 for (final JsonNode entry : array) {
@@ -48,36 +52,36 @@ public class SuppressionManager extends SendGrid{
         }
         return suppressions;
     }
-        
-    public void remove(Group group, String ... email) throws IOException{        
+
+    public void remove(Group group, String ... email) throws IOException{
         remove(group.getId(), email);
     }
-        
-    public void remove(int groupId, String ... email) throws IOException{ 
-        for (String individual: email){            
+
+    public void remove(int groupId, String ... email) throws IOException{
+        for (String individual: email){
             Request delete = Request.Delete(baseUrl + "/groups/" + groupId + "/suppressions/" + individual)
                     .addHeader("Accept", "application/json")
-                    .addHeader("Authorization", authHeader);    
+                    .addHeader("Authorization", authHeader);
             try{
                 delete.execute();
             }
             catch(HttpResponseException ex){
                 throw new IOException(ex);
             }
-        }        
-    }    
-        
-    public List<String> retrieve(Group group) throws IOException{        
+        }
+    }
+
+    public List<String> retrieve(Group group) throws IOException{
         return retrieve(group.getId());
     }
-     
-    public List<String> retrieve(int groupId) throws IOException{        
+
+    public List<String> retrieve(int groupId) throws IOException{
         List<String> suppressions = new ArrayList<>();
         Request get = Request.Get(baseUrl + "/groups/" + groupId + "/suppressions")
                 .addHeader("Accept", "application/json")
                 .addHeader("Authorization", authHeader);
         try{
-            String json = get.execute().returnContent().asString();            
+            String json = get.execute().returnContent().asString();
             JsonNode array = jackson.readTree(json);
             if (array.isArray()){
                 for (final JsonNode entry : array) {
@@ -89,8 +93,8 @@ public class SuppressionManager extends SendGrid{
             throw new IOException(ex);
         }
         return suppressions;
-    }    
-    
+    }
+
     public List<Suppression> retrieve(String email) throws IOException{
         List<Suppression> suppressions = new ArrayList<>();
         Request get = Request.Get(baseUrl + "/suppressions/" + email)
@@ -107,14 +111,14 @@ public class SuppressionManager extends SendGrid{
         }
         return suppressions;
     }
-    
+
     public void save(String email, List<Suppression> suppressions) throws IOException{
         Set<Integer> previouslySuppressed = new HashSet<>();
         for (Suppression s: retrieve(email)){
             if (s.isSuppressed()){
                 previouslySuppressed.add(s.getId());
             }
-        }        
+        }
         for (Suppression s: suppressions){
             if (s.isSuppressed() && !previouslySuppressed.contains(s.getId())){
                 add(s.getId(), email);
@@ -122,6 +126,6 @@ public class SuppressionManager extends SendGrid{
             else if(!s.isSuppressed() && previouslySuppressed.contains(s.getId())){
                 remove(s.getId(), email);
             }
-        }        
+        }
     }
 }

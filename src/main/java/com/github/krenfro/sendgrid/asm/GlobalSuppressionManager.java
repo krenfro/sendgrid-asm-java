@@ -9,16 +9,20 @@ import org.apache.http.entity.ContentType;
 
 /**
  * Global Suppressions are email addresses that will not receive any emails.
- * 
+ *
  * https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/global_suppressions.html
  */
 public class GlobalSuppressionManager extends SendGrid{
-    
+
     public GlobalSuppressionManager(String username, String password){
         super(username, password);
     }
-        
-    public List<String> add(String ... email) throws IOException{        
+
+    public GlobalSuppressionManager(String apiKey){
+        super(apiKey);
+    }
+
+    public List<String> add(String ... email) throws IOException{
         List<String> suppressions = new ArrayList<>();
         Map<String,Object> map = new HashMap<>();
         map.put("recipient_emails", email);
@@ -29,7 +33,7 @@ public class GlobalSuppressionManager extends SendGrid{
         try{
             String json = post
                     .bodyString(payload, ContentType.APPLICATION_JSON)
-                    .execute().returnContent().asString();            
+                    .execute().returnContent().asString();
             JsonNode array = jackson.readTree(json).path("recipient_emails");
             if (array.isArray()){
                 for (final JsonNode entry : array) {
@@ -42,8 +46,8 @@ public class GlobalSuppressionManager extends SendGrid{
         }
         return suppressions;
     }
-    
-    public boolean has(String email) throws IOException{                
+
+    public boolean has(String email) throws IOException{
         Request get = Request.Get(baseUrl + "/suppressions/global/" + email)
                 .addHeader("Accept", "application/json")
                 .addHeader("Authorization", authHeader);
@@ -55,19 +59,19 @@ public class GlobalSuppressionManager extends SendGrid{
             throw new IOException(ex);
         }
     }
-                
-    public void remove(String ... email) throws IOException{         
-        
+
+    public void remove(String ... email) throws IOException{
+
         for (String entry: email){
             Request delete = Request.Delete(baseUrl + "/suppressions/global/" + entry)
                     .addHeader("Accept", "application/json")
-                    .addHeader("Authorization", authHeader);    
+                    .addHeader("Authorization", authHeader);
             try{
                 delete.execute();
             }
             catch(HttpResponseException ex){
                 throw new IOException(ex);
-            }  
+            }
         }
-    }    
+    }
 }
