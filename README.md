@@ -39,6 +39,16 @@ Apache Fluent HttpClient
 </dependency>
 ```
 
+## Gradle
+```
+dependencies {
+    compile "com.github.krenfro:sendgrid-asm-java:0.0.1"
+    compile "org.apache.httpcomponents:httpclient:4.3.6"
+    compile "org.apache.httpcomponents:fluent-hc:4.3.6"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.4.0"
+}
+```
+
 
 #Usage
 
@@ -91,13 +101,12 @@ group = groupMgr.retrieve(42);
 
 //remove groups
 groupMgr.remove(group);
-groupMgr.remove(42);
 
 ```
 
 ##Global Suppressions
 ```java
-GlobalSuppressionManager globalMgr = 
+GlobalSuppressionManager globalMgr =
 	new GlobalSuppressionManager("username", "password");
 
 if (globalMgr.has("email")){
