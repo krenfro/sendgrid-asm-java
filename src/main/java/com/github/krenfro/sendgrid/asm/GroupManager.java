@@ -9,7 +9,7 @@ import org.apache.http.client.fluent.Request;
 import org.apache.http.entity.ContentType;
 
 /**
- * GroupManager are individual types of email you would like your users to be able to 
+ * Groups are individual types of email you would like your users to be able to 
  * unsubscribe from, (e.g. Newsletters, Invoices, Alerts).
  * 
  * https://sendgrid.com/docs/API_Reference/Web_API_v3/Advanced_Suppression_Manager/groups.html
