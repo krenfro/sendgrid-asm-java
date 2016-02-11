@@ -20,7 +20,7 @@ Apache Fluent HttpClient
 <dependency>
     <groupId>com.github.krenfro</groupId>
     <artifactId>sendgrid-asm-java</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 </dependency>
 <dependency>
     <groupId>org.apache.httpcomponents</groupId>
@@ -42,7 +42,7 @@ Apache Fluent HttpClient
 ## Gradle
 ```
 dependencies {
-    compile "com.github.krenfro:sendgrid-asm-java:0.0.3"
+    compile "com.github.krenfro:sendgrid-asm-java:0.0.4"
     compile "org.apache.httpcomponents:httpclient:4.3.6"
     compile "org.apache.httpcomponents:fluent-hc:4.3.6"
     compile "com.fasterxml.jackson.core:jackson-databind:2.4.0"
