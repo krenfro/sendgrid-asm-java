@@ -20,7 +20,7 @@ public abstract class SendGrid {
     }
 
     public SendGrid(String apiKey) {
-        authHeader = "Bearer " + Base64.encodeBase64String(apiKey.getBytes());
+        authHeader = "Bearer " + apiKey;
         setupJackson();
     }
 
